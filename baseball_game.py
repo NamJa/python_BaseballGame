@@ -256,8 +256,7 @@ def is_yes(one_more_input):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    
-    if one_more_input == "Y" or one_more_input == "YES":
+    if one_more_input.upper() == "Y" or one_more_input.upper() == "YES":
         result = True
     else:
         result = False
@@ -292,7 +291,7 @@ def is_no(one_more_input):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     
-    if one_more_input == "N" or one_more_input == "NO":
+    if one_more_input.upper() == "N" or one_more_input.upper() == "NO":
         result = True
     else:
         result = False
@@ -310,7 +309,7 @@ def main():
     isYes = None
     isNo = None
     while True:
-        user_input = input("Input guess number : ")
+        user_input = input('Input guess number : ')
         
         if user_input == "0":
             break
@@ -320,7 +319,7 @@ def main():
             
             if playingResult[0] == 3:
                 while True:
-                    inputStr = input("You win, one more(Y/N)?")
+                    inputStr = input('You win, one more(Y/N)?')
                     oneMore = inputStr.upper()
                     if oneMore == "Y" or oneMore == "YES":
                         isYes = is_yes(oneMore)
@@ -332,18 +331,17 @@ def main():
                         print("Wrong Input, Input again")
         else:
             print("Wrong Input, Input again")
-if isYes == True:
-    isYes = None
-        random_number = str(get_not_duplicated_three_digit_number())
-        print("Random Number is : ", random_number)
-        continue
+        if isYes == True:
+            isYes = None
+            random_number = str(get_not_duplicated_three_digit_number())
+            print("Random Number is : ", random_number)
+            continue
         elif isNo == True:
             break
 
-# ==================================
-print("Thank you for using this program")
-print("End of the Game")
+    # ==================================
+    print("Thank you for using this program")
+    print("End of the Game")
 
-if __name__ == "__main__":
-    main()
-
+    if __name__ == "__main__":
+        main()
